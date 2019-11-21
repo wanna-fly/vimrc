@@ -25,3 +25,11 @@ set showmatch
 
 " 设置查找高亮
 set hlsearch
+" 增量搜索
+set incsearch
+
+" 打开文件后自动回到上次编辑位置
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
